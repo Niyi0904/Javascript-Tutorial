@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OOP</title>
+</head>
+<body>
+  <h1 class="home"> Object Oriented Programming (OOP) with Javascript</h1>
+
+  <script>
+    const Person = function(firstName, birthYear) {
+      // Instances properties
+      this.firstName = firstName
+      this.birthYear = birthYear
+
+      // Never create a method inside a constructor function
+      // this.calcAge = function() {
+      //   console.log(2037 - this.birthYear);
+      // }
+
+
+  }
+  const Jonas = new Person('Jonas', 1991); 
+  console.log(Jonas);
+
+  const Matilda = new Person('matilda', 2017);
+  const Jack = new Person('Jack', 2009);
+  console.log(Matilda, Jack);
+
+  const Jay = 'Jay';
+
+  console.log(Jonas instanceof Person);
+  console.log(Jay instanceof Person);
+
+
+  // Prototypes
+  Person.prototype.calcAge = function() {
+    console.log(2037 - this.birthYear);
+  }
+
+  Jonas.calcAge();
+  Matilda.calcAge();
+  Jack.calcAge();
+
+  console.log(Jonas.__proto__ === Person.prototype)
+
+  console.log(Person.prototype.isPrototypeOf(Jonas))
+
+
+  Person.prototype.species = 'Homo sapiens';
+
+  console.log(Jonas.species, Matilda.species)
+
+  // Checking for own property
+  console.log(Jonas.hasOwnProperty('firstName'));
+  console.log(Jonas.hasOwnProperty('species'));
+
+  </script>
+</body>
+</html>
